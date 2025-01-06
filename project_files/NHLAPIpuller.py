@@ -57,13 +57,13 @@ def getGoalieSvByStrength(params):
     return setDefault(finalURL)
 
 
-def saveToJSON(url, title):
+def saveToJSON(url, filename):
     """ dumps json from url to local file """
-    timestamp = datetime.now().isoformat()
+    timestamp = datetime.now().isoformat() + " ET"
     data = url.json()
     data = {"Timestamp":timestamp, **data}
     
-    with open(title, 'w') as file:
+    with open(filename, 'w') as file:
         json.dump(data, file, indent=4)
 
 
