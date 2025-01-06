@@ -1,3 +1,9 @@
+"""
+Grabs JSON from the NHL API and copies it to local file
+
+Author: Alex Poyer
+"""
+
 import requests
 import json
 from datetime import datetime
