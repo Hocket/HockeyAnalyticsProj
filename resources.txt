@@ -1,0 +1,14 @@
+NHL API references:
+https://github.com/Zmalski/NHL-API-Reference
+
+NHL API rest config page
+https://api.nhle.com/stats/rest/en/config
+
+RIT vs Guelph
+https://www.ncaa.com/game/6344843
+
+https://www.ionos.com/digitalguide/websites/web-development/sqlite3-python/
+
+https://dev.to/kamranakhan/python-convert-json-to-sqlite-4a5n
+
+https://www.youtube.com/watch?v=byHcYRpMgI4
