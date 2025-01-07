@@ -2,10 +2,10 @@
 A python based approach to getting, analyzing, and visualizing data from the NHL's API
 
 ## Usage
-__This is a work in progress project__
+### __This is a work in progress project__
 
 Usage will change drastically over time to reflect progress status.
----
+
 - As of 1/5/2025, this project can pull the json from the NHL API and updates a local file. 
 
 - As of 1/6/2025, this project can convert json from NHL API into a pandas dataframe
