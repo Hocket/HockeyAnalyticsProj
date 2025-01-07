@@ -20,7 +20,7 @@ def convertToDataframe(filename):
     converts a json file to a pandas dataframe 
     returns timestamp and dataframe
     """
-    try:
+    try: # ADD EXCEPTION FOR JSON FORMATTED IN UNEXPECTED WAYS
         with open(filename) as json_file:
             json_data = json.load(json_file)
             timestamp = json_data["Timestamp"]
