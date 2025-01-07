@@ -12,6 +12,7 @@ PING_URL = "https://api.nhle.com/stats/rest/ping"
 SEASON_ID = 20242025 # 2024-25 season
 
 def setDefault(url):
+    """set to globally defined season"""
     if 'cayenneExp=' not in url: # default to globally defined season
         url += f'&cayenneExp=seasonId={SEASON_ID}'
     if requests.get(url) == 500:
@@ -74,6 +75,7 @@ def saveToJSON(url, filename):
 
 
 def main():
+    """ manual test"""
     ping = requests.get(PING_URL)
     
     # return if fails to connect
