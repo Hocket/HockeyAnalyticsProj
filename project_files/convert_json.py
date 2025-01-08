@@ -1,5 +1,6 @@
 """
-converts json file into a pandas dataframe
+converts formatted json file into a pandas dataframe
+use NHLAPIpuller.get
 author: Alex Poyer
 """
 import pandas as pd
@@ -35,7 +36,7 @@ def main():
     timestamp, dataframe = convertToDataframe("json_files/GoalieSummary.json")
     print("Timestamp:",timestamp)
     print(dataframe)
-    df_sorted = dataframe.sort_values(by=['goalsAgainst', 'losses', 'wins'], ascending=False)
+    df_sorted = dataframe.sort_values(by=['goalsAgainst', 'losses', 'wins'], ascending=False) #experiment, use in manipulations
     print(df_sorted)
 
 if __name__ == "__main__":
