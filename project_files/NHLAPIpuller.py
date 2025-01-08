@@ -11,6 +11,15 @@ from datetime import datetime
 PING_URL = "https://api.nhle.com/stats/rest/ping"
 SEASON_ID = 20242025 # 2024-25 season
 
+
+def ping():
+    ping = requests.get(PING_URL)
+    # return if fails to connect
+    if ping.status_code != 200:
+        print("Failed to connect to network")
+        return False
+    return True
+
 def setDefault(url):
     """set to globally defined season"""
     if 'cayenneExp=' not in url: # default to globally defined season
@@ -67,30 +76,10 @@ def getGoalieSvByStrength(params):
 def saveToJSON(url, filename):
     """ dumps json from url to local file """
     timestamp = datetime.now().isoformat() + " ET"
+    url = requests.get(url)
     data = url.json()
     data = {"Timestamp":timestamp, **data}
     
     with open(filename, 'w') as file:
         json.dump(data, file, indent=4)
 
-
-def main():
-    """ manual test"""
-    ping = requests.get(PING_URL)
-    
-    # return if fails to connect
-    if ping.status_code != 200:
-        print("Failed to connect to network")
-        return
-    
-    """ CALLS FOR URL SEARCHES"""
-    goal_summary = getGoalieSummary("limit=-1&sort=wins")
-    goal_sv_by_str = getGoalieSvByStrength("limit=-1&sort=wins")
-
-    goal_summary = requests.get(goal_summary)
-    goal_sv_by_str = requests.get(goal_sv_by_str)
-    saveToJSON(goal_summary, "json_files/GoalieSummary.json")
-    saveToJSON(goal_sv_by_str, "json_files/GoalieSavesByStrength.json")
-
-if __name__ == '__main__':
-    main()
