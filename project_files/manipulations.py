@@ -12,18 +12,28 @@ import NHLAPIpuller as nap
 
 class Data():
     """ for creation and manipulation of pandas datatables """
+    __slots__ = ["__url", "__filename", "__timestamp", "__dataframe"]
     def __init__(self, url, filename):
-        self.url = url
+        self.__url = url
+        self.__filename = filename
         if nap.ping():
             nap.saveToJSON(url, filename)
-            self.timestamp, self.dataframe = cj.convertToDataframe(filename)
+            self.__timestamp, self.__dataframe = cj.convertToDataframe(filename)
     
+    def getTime(self):
+        return self.__timestamp
+    
+    def getFilename(self):
+        return self.__filename
+
+    def getDataframe(self):
+        return self.__dataframe
 
 
 def main():
     """ manual test """
     table = Data(nap.getGoalieSvByStrength("limit=-1"), "test.json")
-    print(table.dataframe)
+    print(table.getDataframe())
 
 if __name__ == "__main__":
     main()
